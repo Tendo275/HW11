@@ -1,0 +1,22 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:notes_db
+    driverClassName: org.h2.Driver
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+  application:
+    name: tasks
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

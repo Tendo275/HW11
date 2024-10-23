@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: Tasks
+          uri: http://localhost:8001/
+          predicates:
+            - Path=/tasks/**
+        - id: Books
+          uri: http://localhost:8002/
+          predicates:
+            - Path=/books/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
